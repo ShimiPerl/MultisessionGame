@@ -1,1 +1,145 @@
+.board {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 12px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  max-width: 800px;
+  max-height: 500px;
+}
 
+.cell {
+  aspect-ratio: 1;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  min-width: 80px;
+  min-height: 80px;
+}
+
+.cell:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.shapeSymbol {
+  font-size: 2rem;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 4px;
+}
+
+.shapeName {
+  font-size: 0.7rem;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  text-transform: capitalize;
+  text-align: center;
+}
+
+/* Shape-specific styles - all cells remain square */
+.cell-triangle {
+  /* Triangle shape represented by symbol only, cell stays square */
+}
+
+.cell-square {
+  border-radius: 8px;
+}
+
+.cell-diamond {
+  /* Diamond shape represented by symbol only, cell stays square */
+}
+
+.cell-circle {
+  /* Circle shape represented by symbol only, cell stays square */
+}
+
+/* Color-specific styles */
+.cell-red {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+}
+
+.cell-green {
+  background: linear-gradient(135deg, #51cf66, #40c057);
+}
+
+.cell-blue {
+  background: linear-gradient(135deg, #339af0, #228be6);
+}
+
+.cell-yellow {
+  background: linear-gradient(135deg, #ffd43b, #fab005);
+}
+
+.cell-yellow .shapeSymbol,
+.cell-yellow .shapeName {
+  color: #333;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.gameOver {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff6b6b;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 40px;
+  backdrop-filter: blur(5px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .board {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 6px;
+    padding: 15px;
+    max-width: 400px;
+    max-height: 500px;
+  }
+  
+  .shapeSymbol {
+    font-size: 1.5rem;
+  }
+  
+  .shapeName {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .board {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    gap: 4px;
+    padding: 10px;
+    max-width: 300px;
+    max-height: 600px;
+  }
+  
+  .shapeSymbol {
+    font-size: 1.2rem;
+  }
+  
+  .shapeName {
+    font-size: 0.5rem;
+  }
+}
